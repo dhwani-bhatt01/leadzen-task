@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Card from "./components/Card";
+import CardComponent from "./components/CardComponent";
 
 function App() {
 	const [cardData, setCardData] = useState([]);
@@ -12,8 +11,10 @@ function App() {
 	}, []);
 
 	return (
-		<div className="p-4">
-			<Card cardData={cardData} />
+		<div className="p-4 w-fit mx-auto">
+			{cardData.map((data) => {
+				return <CardComponent data={data} />;
+			})}
 		</div>
 	);
 }
